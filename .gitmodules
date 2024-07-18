@@ -1,9 +1,9 @@
-[submodule "emmc"]
-	path = emmc
-	url = https://github.com/UzL-PrivSec/dp-kmeans-max-cover.git
-[submodule "dpm"]
-	path = dpm
-	url = https://github.com/UzL-PrivSec/dp-mondrian-clustering.git
-[submodule "lshsplits"]
-	path = lshsplits
+[submodule "algorithms/lshsplits"]
+	path = algorithms/lshsplits
 	url = https://github.com/google/differential-privacy.git
+[submodule "algorithms/dpm"]
+	path = algorithms/dpm
+	url = https://github.com/UzL-PrivSec/dp-mondrian-clustering.git
+[submodule "algorithms/emmc"]
+	path = algorithms/emmc
+	url = https://github.com/UzL-PrivSec/dp-kmeans-max-cover.git
