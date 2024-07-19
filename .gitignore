@@ -2,6 +2,11 @@ __pycache__/
 
 data/exps/
 
+data/dts/uciGasEmissions
+data/dts/uciLetters
+
+.DS_STORE
+
 plots/
 *.pdf
 *.png
