@@ -24,12 +24,12 @@ python3 init.py
 ```
 
 ## Experiments
-The code contains an experiment to reproduce every plot including table2. Each experiment is split into two partes, generating the data and creating a plot or table. The available experiments are:
+This repository contains experiments to reproduce every plot including table2. Each experiment is split into two parts, generating the data and creating a plot or table. The available experiments are:
 | Figure      | Experiment  Name    | Description      |
 | ------------- |------------- |------------ |
 | Figure1 | KOpt | Comparison of the KMeans distance |
 | Figure4 | Centreness | Influence of t,q onf the centreness |
-| Figure5 | Timing | Running Time of each algorithm |
+| Figure5 | Timing | Running time of each algorithm |
 | Figure6 | EpsDist | Distribution of the privacy budget (epsilon) inside DPM |
 | Table2 | KOpt | Algorithms evaluated on all metrics |
 
