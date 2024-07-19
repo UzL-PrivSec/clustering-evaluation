@@ -103,8 +103,6 @@ def uciLetters():
 
     bounds = (0, 15)
 
-    print(x_new.shape, y_new.shape)
-
     dt = _Dataset(
         x_new,
         y_new,
@@ -153,8 +151,6 @@ def mnistEmbs():
 
     bounds = (0, 13)
 
-    print(x.shape, y.shape)
-
     dt = _Dataset(x, y, bounds, 10, len(x), emb_size, "mnist_embs")
 
     return dt
@@ -170,8 +166,6 @@ def fashionEmbs():
     emb_size = 40
 
     bounds = (0, 13)
-
-    print(x.shape, y.shape)
 
     return _Dataset(
         x,

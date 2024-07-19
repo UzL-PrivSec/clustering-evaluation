@@ -28,7 +28,7 @@ class CentrenessSetting(HyperSetting):
 
     @property
     def tag(self):
-        return super().tag + f"_tq{self.tq_range[0]}-{self.tq_range[-1]}"
+        return super().tag
 
 
 @dataclass
@@ -71,13 +71,21 @@ def get(experiment: str, flavor: str, dataset):
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         save=True,
                     )
+                case "fast":
+                    setting = KOptSetting(
+                        name=flavor,
+                        num_iterations=2,
+                        eps=1.0,
+                        delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
+                        save=True,
+                    )
         case "Centreness":
             match flavor:
                 case "test":
                     setting = CentrenessSetting(
                         name=flavor,
                         num_iterations=1,
-                        eps=1,
+                        eps=1.0,
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         tq_range=np.asarray([[1, 1], [0.3, 1 / 12]]),
                         save=False,
@@ -86,7 +94,7 @@ def get(experiment: str, flavor: str, dataset):
                     setting = CentrenessSetting(
                         name=flavor,
                         num_iterations=10,
-                        eps=1,
+                        eps=1.0,
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         tq_range=np.asarray(
                             [
@@ -110,13 +118,32 @@ def get(experiment: str, flavor: str, dataset):
                         ),
                         save=True,
                     )
+                case "fast":
+                    setting = CentrenessSetting(
+                        name=flavor,
+                        num_iterations=2,
+                        eps=1.0,
+                        delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
+                        tq_range=np.asarray(
+                            [
+                                [0.7, 0.2],
+                                [0.8, 0.2],
+                                [0.9, 0.2],
+                                [0.7, 0.3],
+                                [0.8, 0.3],
+                                [0.9, 0.3],
+                                [0.9, 0.4],
+                            ]
+                        ),
+                        save=True,
+                    )
         case "EpsDist":
             match flavor:
                 case "test":
                     setting = EpsDistSetting(
                         name=flavor,
                         num_iterations=1,
-                        eps=1,
+                        eps=1.0,
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         eps_dist_range=np.asarray(
                             [[0.04, 0.18, 0.18, 0.6], [0.4, 0.3, 0.2, 0.1]]
@@ -143,9 +170,31 @@ def get(experiment: str, flavor: str, dataset):
                     setting = EpsDistSetting(
                         name=flavor,
                         num_iterations=10,
-                        eps=1,
+                        eps=1.0,
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         eps_dist_range=eps_dist_range,
+                        save=True,
+                    )
+                case "fast":
+                    setting = EpsDistSetting(
+                        name=flavor,
+                        num_iterations=2,
+                        eps=1.0,
+                        delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
+                        eps_dist_range=np.asarray(
+                            [
+                                [0.04, 0.18, 0.18, 0.6],
+                                [0.4, 0.3, 0.2, 0.1],
+                                [0.18, 0.04, 0.18, 0.6],
+                                [
+                                    0.6,
+                                    0.04,
+                                    0.18,
+                                    0.18,
+                                ],
+                                [0.18, 0.6, 0.04, 0.18],
+                            ]
+                        ),
                         save=True,
                     )
         case "Timing":
@@ -162,6 +211,14 @@ def get(experiment: str, flavor: str, dataset):
                     setting = TimingSetting(
                         name=flavor,
                         num_iterations=10,
+                        eps=1.0,
+                        delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
+                        save=True,
+                    )
+                case "fast":
+                    setting = TimingSetting(
+                        name=flavor,
+                        num_iterations=2,
                         eps=1.0,
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         save=True,

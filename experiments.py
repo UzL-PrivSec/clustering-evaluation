@@ -1,7 +1,6 @@
 import os
 import argparse
 import time
-from datetime import datetime
 import itertools
 
 import pandas as pd
@@ -16,9 +15,7 @@ import hypersettings
 def SAVE(data_frame, type_, tag, algo, dataset_name):
     base_path = "./data/exps/"
 
-    # current date as string
-    today = datetime.today().strftime("%Y-%m-%d")
-    tag = MAIN_TAG + "_" + tag + "_" + today
+    tag = MAIN_TAG + "_" + tag
     path = os.path.join(base_path, type_, tag)
 
     os.makedirs(path, exist_ok=True)
@@ -52,11 +49,7 @@ def POSTPROCESS(
         num_data_args=num_data_args,
     )
 
-    print(result_data)
-
     result_frame = results_to_pandas(base_frame, k_target, iter_out_param, result_data)
-
-    print(result_frame)
 
     if save:
         SAVE(result_frame, exp_type, tag, algo_name, dt_name)
@@ -96,7 +89,6 @@ def results_to_pandas(base_frame, k_targets, hyper_param_list, data):
     for k_target, hyper_param, hp_data in zip(k_targets, hyper_param_list, data):
         hyper_param = np.atleast_1d(hyper_param)
         for iteration, (kt, iter_hp_data) in enumerate(zip(k_target, hp_data)):
-            print(iteration, kt, hyper_param, iter_hp_data)
             base_frame.loc[len(base_frame)] = [
                 iteration,
                 kt,
@@ -122,6 +114,14 @@ class KOpt:
     def __init__(self, algo_name):
         self.num_data_args = 7
         self.algo_name = algo_name
+
+        if algo_name == "emmc" and dataset.name == "synth_big1":
+            print("Sorry, but it takes too much time...")
+            exit(2)
+
+        if algo_name == "emmc" and setting.name == "fast":
+            exit(2)
+
         self.algo_func = getattr(algorithms, algo_name)
 
     base_frame = pd.DataFrame(
@@ -269,6 +269,14 @@ class Timing:
     def __init__(self, algo_name):
         self.num_data_args = 1
         self.algo_name = algo_name
+
+        if algo_name == "emmc" and dataset.name == "synth_big1":
+            print("Sorry, but it takes too much time...")
+            exit(2)
+
+        if algo_name == "emmc" and setting.name == "fast":
+            exit(2)
+
         self.algo_func = getattr(algorithms, algo_name)
 
     base_frame = pd.DataFrame(
@@ -286,7 +294,6 @@ class Timing:
                     eps=setting.eps,
                     delta=setting.delta,
                     k=dataset.num_clusters,
-                    with_scores=False,
                 )
                 delta_t = time.time() - t
                 return [delta_t]
