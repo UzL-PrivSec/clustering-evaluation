@@ -33,11 +33,11 @@ The code contains an experiment to reproduce every plot including table2. Each e
 | Figure6 | EpsDist | Distribution of the privacy budget (epsilon) inside DPM |
 | Table2 | KOpt | Algorithms evaluated on all metrics |
 
-First you have to generate data that will be stored in *data/exps/<Experiment Name>/\**
+First you have to generate data that will be stored in *data/exps/\<Experiment Name\>/\**
 ```bash
 . start.sh <Experiment Name>
 ```
-and afterwards you can create a corresponding plot or table that will be stored in *plots/<Figure>*
+and afterwards you can create a corresponding plot or table that will be stored in *plots/\<Figure\>*
 ```bash
 python3 plotting/<Figure>
 ```
