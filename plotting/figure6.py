@@ -7,7 +7,7 @@ from pandas.plotting import parallel_coordinates
 
 
 with open(
-    f"./data/exps/epsDist/ccs24_fast_reps2_eps1.0/dpm_mnist_embs.pkl", "rb"
+    f"./data/exps/epsDist/ccs24_paper_reps10_eps1.0/dpm_mnist_embs.pkl", "rb"
 ) as _file:
     df = pkl.load(_file)
 

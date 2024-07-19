@@ -6,7 +6,7 @@ import matplotlib
 import numpy as np
 
 with open(
-    f"./data/exps/centreness/ccs24_fast_reps2_eps1.0/dpm_synth_10d.pkl", "rb"
+    f"./data/exps/centreness/ccs24_paper_reps10_eps1.0/dpm_synth_10d.pkl", "rb"
 ) as _file:
     df = pkl.load(_file)
 

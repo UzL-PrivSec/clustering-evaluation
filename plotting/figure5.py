@@ -19,11 +19,11 @@ dfs = []
 for dt_name in dts:
 
     file_path = {
-        "dpm": f"./data/exps/timing/ccs24_fast_reps2_eps1.0/dpm_{dt_name}.pkl",
-        "dplloyd": f"./data/exps/timing/ccs24_fast_reps2_eps1.0/dplloyd_{dt_name}.pkl",
-        "kmeans": f"./data/exps/timing/ccs24_fast_reps2_eps1.0/kmeans_{dt_name}.pkl",
-        "emmc": f"./data/exps/timing/ccs24_fast_reps2_eps1.0/emmc_{dt_name}.pkl",
-        "lshsplits": f"./data/exps/timing/ccs24_fast_reps2_eps1.0/lshsplits_{dt_name}.pkl",
+        "dpm": f"./data/exps/timing/ccs24_paper_reps10_eps1.0/dpm_{dt_name}.pkl",
+        "dplloyd": f"./data/exps/timing/ccs24_paper_reps10_eps1.0/dplloyd_{dt_name}.pkl",
+        "kmeans": f"./data/exps/timing/ccs24_paper_reps10_eps1.0/kmeans_{dt_name}.pkl",
+        "emmc": f"./data/exps/timing/ccs24_paper_reps10_eps1.0/emmc_{dt_name}.pkl",
+        "lshsplits": f"./data/exps/timing/ccs24_paper_reps10_eps1.0/lshsplits_{dt_name}.pkl",
     }
 
     for algo_name, path in file_path.items():
