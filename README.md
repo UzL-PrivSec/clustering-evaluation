@@ -42,4 +42,5 @@ and afterwards you can create a corresponding plot or table that will be stored 
 python3 plotting/<Figure>
 ```
 ## Misc
-- To create figure 1 and table2, the experiment KOpt only needs to be run once. 
+- To create figure 1 and table2, the experiment KOpt only needs to be run once.
+- Currently, *start.sh* performs all runs sequentially. However, the runs can also be parallelised to speed up the experiments.
