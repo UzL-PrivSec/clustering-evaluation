@@ -52,8 +52,7 @@ def POSTPROCESS(
         num_data_args=num_data_args,
     )
 
-    if base_frame is None:
-        return
+    print(result_data)
 
     result_frame = results_to_pandas(base_frame, k_target, iter_out_param, result_data)
 
@@ -97,6 +96,7 @@ def results_to_pandas(base_frame, k_targets, hyper_param_list, data):
     for k_target, hyper_param, hp_data in zip(k_targets, hyper_param_list, data):
         hyper_param = np.atleast_1d(hyper_param)
         for iteration, (kt, iter_hp_data) in enumerate(zip(k_target, hp_data)):
+            print(iteration, kt, hyper_param, iter_hp_data)
             base_frame.loc[len(base_frame)] = [
                 iteration,
                 kt,
@@ -140,9 +140,9 @@ class KOpt:
 
     def run(self):
 
-        def algo(k):
+        def algo(_):
             return lambda: self.algo_func(
-                dataset, eps=setting.eps, delta=setting.delta, k=k
+                dataset, eps=setting.eps, delta=setting.delta, k=dataset.num_clusters
             )
 
         POSTPROCESS(
@@ -219,7 +219,7 @@ class Centreness:
         self.num_data_args = 7
 
         if algo_name != "dpm":
-            raise ValueError("Only DPM is supported for Experiment 'EpsDist'")
+            raise ValueError("Only DPM is supported for Experiment 'Centreness'")
 
         self.algo_name = algo_name
         self.algo_func = getattr(algorithms, algo_name)
@@ -343,8 +343,8 @@ if __name__ == "__main__":
 
     args = handle_args()
 
-    dataset = datasets.datasets_by_name[args.dataset]
-    setting = hypersettings.get(args.experiment, args.flavor, dataset)
+    dataset = datasets.datasets_by_name[args.dataset]()
+    setting = hypersettings.get(args.experiment, args.setting, dataset)
 
     print(setting)
 

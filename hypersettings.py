@@ -63,26 +63,10 @@ def get(experiment: str, flavor: str, dataset):
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         save=False,
                     )
-                case "test_emmc":
-                    setting = KOptSetting(
-                        name=flavor,
-                        num_iterations=2,
-                        eps=1.0,
-                        delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
-                        save=False,
-                    )
                 case "paper":
                     setting = KOptSetting(
                         name=flavor,
                         num_iterations=20,
-                        eps=1.0,
-                        delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
-                        save=True,
-                    )
-                case "emmc":
-                    setting = KOptSetting(
-                        name=flavor,
-                        num_iterations=5,
                         eps=1.0,
                         delta=1 / (dataset.num_points * np.sqrt(dataset.num_points)),
                         save=True,

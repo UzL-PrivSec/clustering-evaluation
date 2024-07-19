@@ -32,6 +32,11 @@ class _Dataset:
         )
         return cap * np.sqrt(self.num_dims)
 
+    # deprecated
+    @property
+    def radius(self):
+        return (self.bounds[1] - self.bounds[0]) * np.sqrt(self.num_dims) / 2
+
 
 def _create_synth(
     num_points, num_dims, num_clusters, bounds, seed, name, cluster_std=1
@@ -74,9 +79,8 @@ def uciLetters():
 
     # https://archive.ics.uci.edu/dataset/59/letter+recognition
 
-    x, y = utils.load(
-        "/vol/research/dpm/dp-mondrian/data/dts/uciLetters/uciLetters.pkl"
-    )
+    with open(f"./data/dts/uciLetters/uciLetters.pkl", "rb") as f_:
+        x, y = pickle.load(f_)
 
     num_per_class = 720
     num_classes = 26
@@ -118,9 +122,9 @@ def uciGasEmissions():
 
     # https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set
 
-    x, y = utils.load(
-        "/vol/research/dpm/dp-mondrian/data/dts/uciGasEmissions/uciGasEmissions.pkl"
-    )
+    with open(f"./data/dts/uciGasEmissions/uciGasEmissions.pkl", "rb") as f_:
+        x, y = pickle.load(f_)
+
     y = y.astype(int)
 
     emb_size = 11

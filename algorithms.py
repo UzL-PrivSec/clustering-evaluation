@@ -27,22 +27,18 @@ def kmeans(dataset, k, with_scores=True, **unused_kwargs):
     _ = algo.fit(dataset.data, dataset.y)
 
     if with_scores:
-        return *metrics.get_all_scores(dataset, algo.cluster_centers_), len(
-            algo.cluster_centers_
-        )
+        return metrics.get_all_scores(dataset, algo.cluster_centers_)
     else:
         return algo.cluster_centers_
 
 
-def dpLloyd(dataset, k, eps, with_scores=True, **unused_kwargs):
+def dplloyd(dataset, k, eps, with_scores=True, **unused_kwargs):
     algo = DPLLyodImpr(n_clusters=k, bounds=dataset.bounds, epsilon=eps)
 
     _ = algo.fit(dataset.data)
 
     if with_scores:
-        return *metrics.get_all_scores(dataset, algo.cluster_centers_), len(
-            algo.cluster_centers_
-        )
+        return metrics.get_all_scores(dataset, algo.cluster_centers_)
     else:
         return algo.cluster_centers_
 
@@ -59,12 +55,12 @@ def emmc(dataset, k, eps, delta, with_scores=True, **unused_kwargs):
     )
 
     if with_scores:
-        return *metrics.get_all_scores(dataset, centers), len(centers)
+        return metrics.get_all_scores(dataset, centers)
     else:
         return centers
 
 
-def lshsplits_new(dataset, k, eps, delta, with_scores=True, **unused_kwargs):
+def lshsplits(dataset, k, eps, delta, with_scores=True, **unused_kwargs):
 
     average_prop = 0.1
     clustering_prop = 1 - average_prop
@@ -101,10 +97,12 @@ def lshsplits_new(dataset, k, eps, delta, with_scores=True, **unused_kwargs):
 
     result = lshsplits_repo.private_lsh_clustering(k, data_class, dp_params)
 
+    centers = result.centers + priv_avg
+
     if with_scores:
-        return *metrics.get_all_scores(dataset, result.centers), len(result.centers)
+        return metrics.get_all_scores(dataset, centers)
     else:
-        return result.centers
+        return centers
 
 
 def dpm(
@@ -126,6 +124,6 @@ def dpm(
     centers, _ = dpm.perform_clustering()
 
     if with_scores:
-        return *metrics.get_all_scores(dataset, centers), len(centers)
+        return metrics.get_all_scores(dataset, centers)
     else:
         return centers

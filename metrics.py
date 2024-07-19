@@ -69,7 +69,7 @@ def norm_kmeans_dist(dataset_name, centers):
 
     distance_avg = 0
 
-    with open(f"./data/opt/{dataset_name}_opt.pkl", "rb") as f_:
+    with open(f"./data/opt/{dataset_name}_top20_silh_score.pkl", "rb") as f_:
         opt_clusterings = pickle.load(f_)
 
     for opt_clustering in opt_clusterings:
@@ -79,7 +79,7 @@ def norm_kmeans_dist(dataset_name, centers):
 
     distance_avg /= len(opt_clusterings)
 
-    dataset = datasets.by_name(dataset_name)
+    dataset = datasets.datasets_by_name[dataset_name]()
 
     distance_avg /= dataset.radius * 2
 
