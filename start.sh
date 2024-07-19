@@ -20,6 +20,6 @@ for dataset in "${datasets[@]}"
 do
     for algorithm in "${algos[@]}"
         do
-            python experiments.py --experiment $experiment --dataset $dataset --setting fast --algorithm $algorithm
+            python experiments.py --experiment $experiment --dataset $dataset --setting paper --algorithm $algorithm
         done
 done    
