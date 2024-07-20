@@ -1,5 +1,6 @@
 # Artifact Evaluation CCS24 for "DPM: Clustering Sensitive Data through Separation"
-This repository contains all necessary code and instructions to replicate the experiments and analyses described in our paper "DPM: Clustering Sensitive Data through Separation. Please follow the guidelines below for setup, running experiments, and generating plots.
+This repository contains all necessary code and instructions to replicate the experiments and analyses described in our paper "DPM: Clustering Sensitive Data through Separation. The results reproducable by the code in this repository are the experiments described in the current version of the paper. As the paper is being shepherded, it deviates from the submitted version.
+Please follow the guidelines below for setup, running experiments, and generating plots.
 
 ## Setup
 If you are coming from Zenodo then you can either clone this repository and proceed OR skip the next step and add the clustering algorithms manually from the assets of the corresponding release.
