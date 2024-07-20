@@ -8,6 +8,7 @@ import pickle
 
 def main():
     prepare_datasets()
+    os.makedirs("./plots/", exist_ok=True)
 
 
 def prepare_datasets():

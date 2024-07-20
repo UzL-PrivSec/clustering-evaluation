@@ -40,6 +40,8 @@ for metric in ["accuracy", "silh_score", "inertia", "norm_kmeans_dist"]:
     else:
         ax = sns.heatmap(df_metric, **kwargs)
 
+    ax.invert_yaxis()
+
     plt.savefig(
         f"./plots/figure4_{metric}.pdf",
         transparent=True,
