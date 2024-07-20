@@ -2,6 +2,8 @@
 This repository contains all necessary code and instructions to replicate the experiments and analyses described in our paper "DPM: Clustering Sensitive Data through Separation. Please follow the guidelines below for setup, running experiments, and generating plots.
 
 ## Setup
+If you are coming from Zenodo then you can either clone this repository and proceed OR skip the next step and add the clustering algorithms manually from the assets of the corresponding release.
+
 First, make sure to download the submodules as well:
 ```bash
 git submodule update --init --recursive
