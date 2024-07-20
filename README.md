@@ -26,14 +26,14 @@ python3 init.py
 ```
 
 ## Experiments
-This repository contains experiments to reproduce every plot including table2. Each experiment is split into two parts, generating the data and creating a plot or table. The available experiments are:
+This repository contains experiments to reproduce every plot including Table 2. Each experiment is split into two parts, generating the data and creating a plot or table. The available experiments are:
 | Figure      | Experiment  Name    | Description      |
 | ------------- |------------- |------------ |
-| Figure1 | KOpt | Comparison of the KMeans distance |
-| Figure4 | Centreness | Influence of t,q onf the centreness |
-| Figure5 | Timing | Running time of each algorithm |
-| Figure6 | EpsDist | Distribution of the privacy budget (epsilon) inside DPM |
-| Table2 | KOpt | Algorithms evaluated on all metrics |
+| Figure 1 | KOpt | Comparison of the KMeans distance |
+| Figure 4 | Centreness | Influence of t,q on the centreness |
+| Figure 5 | Time | Running time of each algorithm |
+| Figure 6 | EpsDist | Distribution of the privacy budget (epsilon) of DPM |
+| Table 2 | KOpt | Algorithms evaluated on all metrics |
 
 First you have to generate data that will be stored in *data/exps/\<Experiment Name\>/\**
 ```bash
@@ -44,5 +44,5 @@ and afterwards you can create a corresponding plot or table that will be stored 
 python3 plotting/<Figure>
 ```
 ## Misc
-- To create figure 1 and table2, the experiment KOpt only needs to be run once.
+- To create Figure 1 and Table 2, the experiment KOpt only needs to be run once.
 - Currently, *start.sh* performs all runs sequentially. However, the runs can also be parallelised to speed up the experiments.
