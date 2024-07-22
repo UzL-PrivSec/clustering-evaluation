@@ -191,11 +191,16 @@ class EpsDist:
     def run(self):
 
         def algo(eps_dist):
+
             return lambda: self.algo_func(
                 dataset,
                 eps=setting.eps,
                 delta=setting.delta,
                 eps_dist=eps_dist,
+                epsilon_scale_bandswidth=eps_dist[0],
+                epsilon_scale_exp=eps_dist[1],
+                epsilon_scale_count=eps_dist[2],
+                epsilon_scale_average=eps_dist[3],
             )
 
         POSTPROCESS(
@@ -242,11 +247,13 @@ class Centreness:
     def run(self):
 
         def algo(tq):
+            t, q = tq
             return lambda: self.algo_func(
                 dataset,
                 eps=setting.eps,
                 delta=setting.delta,
-                cent_params=tq,
+                t=t,
+                q=q,
             )
 
         POSTPROCESS(
