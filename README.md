@@ -17,7 +17,7 @@ pip install -r clustering_algorithms/emmc/requirements.txt
 ```
 Setup the clustering algorithm lshsplits:
 ```bash
-cd /clustering_algorithms/lshsplits/learning/
+cd clustering_algorithms/lshsplits/learning/
 python3 setup.py install
 cd ../../../
 ```
