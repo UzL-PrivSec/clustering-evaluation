@@ -32,7 +32,7 @@ This repository contains experiments to reproduce every plot including Table 2. 
 | ------------- |------------- |------------ |
 | Figure 1 | KOpt | Comparison of the KMeans distance |
 | Figure 4 | Centreness | Influence of t,q on the centreness |
-| Figure 5 | Time | Running time of each algorithm |
+| Figure 5 | Timing | Running time of each algorithm |
 | Figure 6 | EpsDist | Distribution of the privacy budget (epsilon) of DPM |
 | Table 2 | KOpt | Algorithms evaluated on all metrics |
 
