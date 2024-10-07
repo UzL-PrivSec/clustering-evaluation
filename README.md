@@ -47,3 +47,17 @@ python3 plotting/<Figure>
 ## Misc
 - To create Figure 1 and Table 2, the experiment KOpt only needs to be run once.
 - Currently, *start.sh* performs all runs sequentially. However, the runs can also be parallelised to speed up the experiments.
+
+## Citation
+If you use the code, please consider citing our Paper "DPM: Clustering Sensitive through Separation". 
+```
+@misc{liebenow2024dpmclusteringsensitivedata,
+      title={DPM: Clustering Sensitive Data through Separation}, 
+      author={Johannes Liebenow and Yara Schütt and Tanya Braun and Marcel Gehrke and Florian Thaeter and Esfandiar Mohammadi},
+      year={2024},
+      eprint={2307.02969},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2307.02969}, 
+}
+```
