@@ -21,7 +21,7 @@ cd clustering_algorithms/lshsplits/learning/
 python3 setup.py install
 cd ../../../
 ```
-Finally, prepare the missing data sets:
+Please note that the installation process does not have to be successful all the way through. Afterwards, prepare the missing data sets:
 ```bash
 python3 init.py
 ```
@@ -47,6 +47,7 @@ python3 plotting/<Figure>
 ## Misc
 - To create Figure 1 and Table 2, the experiment KOpt only needs to be run once.
 - Currently, *start.sh* performs all runs sequentially. However, the runs can also be parallelised to speed up the experiments.
+- The experiments for the algorithm EM-MC require a huge amount of time and do not finish within 24h.
 
 ## Citation
 If you use the code, please consider citing our Paper "DPM: Clustering Sensitive through Separation". 
