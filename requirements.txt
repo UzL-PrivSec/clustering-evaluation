@@ -1,7 +1,7 @@
-numpy>=1.24.0
-diffprivlib>=0.6.3
-scikit-learn>=1.2.0
-scipy>=1.10.0
-tqdm>=4.66.1
-pandas>=2.0.3
+numpy
+diffprivlib
+scikit-learn
+scipy
+tqdm
+pandas
 seaborn
