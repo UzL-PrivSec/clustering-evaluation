@@ -32,7 +32,6 @@ class _Dataset:
         )
         return cap * np.sqrt(self.num_dims)
 
-    # deprecated
     @property
     def radius(self):
         return (self.bounds[1] - self.bounds[0]) * np.sqrt(self.num_dims) / 2
